@@ -1,5 +1,9 @@
 "use strict";
 
+window.onload = function() {
+    document.getElementById("imgButton").addEventListener("click", loadImage);
+};
+
 //Load the image from the file input, and draw it to the canvas
 function loadImage() {
 

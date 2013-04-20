@@ -1,7 +1,12 @@
 "use strict";
 
+
+
 window.onload = function() {
+    //Since we are using HTML5, we don't have to support < IE9 (no attachEvent)
     document.getElementById("imgButton").addEventListener("click", loadImage);
+    document.getElementById("canvas").addEventListener("mousedown", startDrawOnCanvas);
+    document.getElementById("canvas").addEventListener("mouseup", stopDrawOnCanvas);
 };
 
 //Load the image from the file input, and draw it to the canvas
@@ -31,4 +36,27 @@ function loadImage() {
     else {
         window.alert("Canvas or File API not supported");
     }
+}
+
+function startDrawOnCanvas() {
+    var canvas = document.getElementById("canvas");
+    canvas.style.cursor = "pointer";
+    canvas.addEventListener("mousemove", drawOnCanvas);
+}
+
+function stopDrawOnCanvas() {
+    var canvas = document.getElementById("canvas");
+    canvas.style.cursor = "default";
+    canvas.removeEventListener("mousemove", drawOnCanvas);
+}
+
+function drawOnCanvas(e) {
+    var canvas = document.getElementById("canvas");
+    var rect = canvas.getBoundingClientRect();
+    var context = canvas.getContext("2d");
+
+    var mouseX = e.clientX - rect.left;
+    var mouseY = e.clientY - rect.top;
+
+    context.fillRect(mouseX, mouseY, 5, 5);
 }

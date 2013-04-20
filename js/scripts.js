@@ -4,7 +4,7 @@
 
 window.onload = function() {
     //Since we are using HTML5, we don't have to support < IE9 (no attachEvent)
-    document.getElementById("imgButton").addEventListener("click", loadImage);
+    document.getElementById("fileImage").addEventListener("change", loadImage);
     document.getElementById("canvas").addEventListener("mousedown", startDrawOnCanvas);
     document.getElementById("canvas").addEventListener("mouseup", stopDrawOnCanvas);
 };
@@ -16,7 +16,7 @@ function loadImage() {
     if (Modernizr.canvas && !!window.FileReader) {
     	var reader = new FileReader();
 
-        reader.readAsDataURL(document.getElementById('image').files[0]);
+        reader.readAsDataURL(document.getElementById('fileImage').files[0]);
 
     	reader.onload = (function(e) {
             var image = new Image();

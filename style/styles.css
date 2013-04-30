@@ -1,0 +1,9 @@
+#image {
+	visibility: hidden;
+	position: absolute;
+	left: 0px;
+}
+
+#imgSave {
+	display: block;
+}

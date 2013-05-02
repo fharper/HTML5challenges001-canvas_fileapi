@@ -1,3 +1,7 @@
+* {
+	margin: 5px;
+}
+
 #image {
 	visibility: hidden;
 	position: absolute;
@@ -6,4 +10,12 @@
 
 #imgSave {
 	display: block;
+}
+
+#imgSave[disabled] {
+	opacity: 0.5;
+}
+
+label, div {
+	font-weight: bold;
 }

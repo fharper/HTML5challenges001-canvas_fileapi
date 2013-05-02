@@ -15,6 +15,7 @@ window.onload = function() {
         //We disable elements as they can't use it
         document.getElementById("imgSave").disabled = true;
         document.getElementById("fileImage").disabled = true;
+        updateStatus("You browser doesn't support the canvas element or the File API", "red");
     }
 };
 
@@ -45,6 +46,9 @@ function loadImage() {
 
             var context = canvas.getContext("2d");
             context.drawImage(image, 10, 10);
+
+            document.getElementById("imgSave").disabled = false;
+            updateStatus("The image has been loaded, you can now draw on it", "green");
         });
     });
 }
@@ -54,6 +58,8 @@ function startDrawOnCanvas() {
     var canvas = document.getElementById("canvas");
     canvas.style.cursor = "pointer";
     canvas.addEventListener("mousemove", drawOnCanvas);
+
+    updateStatus("");
 }
 
 //Stop the drawing on the canvas
@@ -72,6 +78,9 @@ function drawOnCanvas(e) {
     var posX = e.clientX - rect.left;
     var posY = e.clientY - rect.top;
 
+    //Black is the default color, but for learning purpose
+    context.fillStyle = 'black';
+
     context.beginPath();
     context.arc(posX, posY, 5, 0, Math.PI * 2);
     context.closePath();
@@ -84,7 +93,7 @@ function saveImage() {
     image.replace("image/png", "image/octet-stream");
     window.location.href = image;
     */
-
+    document.getElementById("imgSave").disabled = true;
     var canvas = document.getElementById("canvas");
 
     var htmlImage = document.getElementById("image");
@@ -93,4 +102,13 @@ function saveImage() {
     //canvas.parentNode.removeChild(canvas);
     htmlImage.style.visibility = "visible";
     canvas.style.visibility = "hidden";
+
+    updateStatus("The image has been created, you can now right click, and save it", "green");
+}
+
+//Display status message to the page
+function updateStatus(message, color) {
+    var status = document.getElementById("status");
+    status.style.color = color;
+    status.innerHTML = message;
 }

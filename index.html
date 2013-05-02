@@ -7,10 +7,16 @@
 	</head>
 	<body>
 		<h1>HTML5 challenges #1 - Canvas, and File API</h1>
-		<h2>Please load an image, draw on it, and save it</h2>
+		<ol>
+			<li>Open an image file</li>
+			<li>Draw on it with your mouse</li>
+			<li>Generate the file to save with the Generate button</li>
+			<li>Right click on the image to save it to your hard disk</li>
+		</ol>
 		<label for="file">Open an image: </label>
-		<input type="file" id="fileImage">
-		<button id="imgSave">Generate the image to save</button>
+		<input type="file" id="fileImage" accept="image/*" >
+		<button id="imgSave" disabled>Generate</button>
+		<div>Status: <span id="status"></span></div>
 		<canvas id="canvas">Canvas or File API not supported</canvas>
 		<img id="image" src="" />
 	</body>

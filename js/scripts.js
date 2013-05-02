@@ -109,7 +109,7 @@
             document.getElementById("imgSave").addEventListener("click", saveImage);
         }
         else {
-            //We disable elements as they can't use it
+            //We disable elements as they can't use them
             document.getElementById("imgSave").disabled = true;
             document.getElementById("fileImage").disabled = true;
             updateStatus("You browser doesn't support the canvas element or the File API", "red");

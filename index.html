@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<title>HTML5 challenge #1</title>
 		<script type="text/javascript" src="js/modernizr.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
 		<link type="text/css" href="style/styles.css" rel="stylesheet" />
@@ -13,11 +15,11 @@
 			<li>Generate the file to save with the Generate button</li>
 			<li>Right click on the image to save it to your hard disk</li>
 		</ol>
-		<label for="file">Open an image: </label>
+		<label for="fileImage">Open an image: </label>
 		<input type="file" id="fileImage" accept="image/*" >
 		<button id="imgSave" disabled>Generate</button>
 		<div>Status: <span id="status"></span></div>
 		<canvas id="canvas">Canvas or File API not supported</canvas>
-		<img id="image" src="" />
+		<img id="image" src="#" alt="Drawing to save"/>
 	</body>
 </html>

@@ -80,10 +80,6 @@
 
     //Saving the image
     function saveImage() {
-        /*
-        image.replace("image/png", "image/octet-stream");
-        window.location.href = image;
-        */
         document.getElementById("imgSave").disabled = true;
         var canvas = document.getElementById("canvas");
 
